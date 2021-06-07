@@ -1,4 +1,5 @@
 ---
+id: Create a Blog Post
 sidebar_position: 3
 ---
 
