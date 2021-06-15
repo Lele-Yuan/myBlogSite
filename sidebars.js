@@ -35,15 +35,37 @@ module.exports = {
   ],
   "tools": [
     'tools/git-command',
-    'tools/echart-api'
+    'tools/commitizen',
+    'tools/husky',
   ],
   "doc": [
     {
-      'minProgram': [
-        'minProgram/custom-tabbar',
-        'minProgram/project.config.json',
-        'minProgram/miniProgram-tool'
+      'vue 3.x': [
+        'frontEnd/vue3/component',
+        'frontEnd/vue3/composition-api',
+        'frontEnd/vue3/reactivity-api',
+        'frontEnd/vue3/store',
+        'frontEnd/vue3/proxy',
       ]
-    }
+    },
+    {
+      'vue': [
+        'frontEnd/vue/less',
+      ]
+    },
+    {
+      'minProgram': [
+        'frontEnd/minProgram/miniProgram-tool',
+        'frontEnd/minProgram/project.config.json',
+        'frontEnd/minProgram/custom-tabbar',
+        'frontEnd/minProgram/custom-navigation',
+      ]
+    },
+    'frontEnd/plugins/echart',
+    {
+      'typescript':[
+        'frontEnd/typescript/guide',
+      ]
+    },
   ],
 };

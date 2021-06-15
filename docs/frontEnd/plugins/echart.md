@@ -1,6 +1,6 @@
 ---
-id: echart-api
-sidebar_position: 2
+id: echart
+sidebar_position: 1
 title: echart
 ---
 

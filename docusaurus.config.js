@@ -33,7 +33,7 @@ module.exports = {
         {
           label: '前端',
           type: 'doc',
-          docId: 'minProgram/custom-tabbar',
+          docId: 'frontEnd/vue3/component',
           position: 'right',
         },
         {
