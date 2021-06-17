@@ -1,21 +1,27 @@
 ---
 id: prototype
 sidebar_position: 1
-title: 构造函数 new 实例 原型 原型链
+title: 原型 原型链
 ---
 
+![构造函数和实例对象](./img/constructor.jpg)
+
 ## 构造函数 constructor
-- 通过 new 关键字调用的函数成为**构造函数**
+1. 构造函数也是一个函数
+2. 没有显示创建对象，直接将属性和方法赋值给 `this` ，没有 `return` 语句
+3. 通过 new 关键字调用**构造函数**
+4. 实例对象的 `constructor` 属性指向构造函数
 
 ## 创建实例对象
 ### new 关键字
-- 执行顺序
-  1. 创建一个对象 **var obj = {}**
-  2. 将对象的 __proto__ 指向构造函数的 prototype **obj.__proto__=Dog.prototype**
-  3. 将函数体内的this指向该对象，并将参数传递过去 call 或 apply
-  4. 执行构造函数体内的代码
-  5. 返回这个对象 
-- 手写一个 new 方法
+1. 执行顺序
+  - 创建一个对象 **var obj = {}**
+  - 将对象的 __proto__ 指向构造函数的 prototype **obj.__proto__=Dog.prototype**
+  - 将函数体内的this指向该对象，并将参数传递过去 call 或 apply
+  - 执行构造函数体内的代码
+  - 返回这个对象 
+  
+2. 手写一个 new 方法
   ```
   function Dog(name){
       this.name = name
@@ -36,13 +42,54 @@ title: 构造函数 new 实例 原型 原型链
   _newDog.sayName()
   ```
 
-### Object.create()
+### Object.create(Base)
+1. 执行顺序
+  - 创建一个空函数
+  - 将函数的 `prototype` 指向参数 Base
+  - 返回这个函数的实例对象
 
+2. 手写实现方式
+  ```
+  Object.create =  function (Base) {
+    var F = function () {};
+    F.prototype = Base;
+    return new F();
+  };
+  ```
 
-## 原型 prototype  __proto__
-- 每个 JavaScript **函数**都有一个prototype。默认函数的原型包含两个属性 constructor 和 __proto__
-- 每个 JavaScript **对象**中都包含一个 __proto__ (非标准)的属性指向父级的 prototype (该对象的原型)
-- 构造函数的 prototype 就是通过该函数创建的实例对象的原型 __proto__
+### 创建一个空对象
+1. Object.create(null) 创建一个干净的空对象， `No properties` 没有任何属性。
+2. new Object() 等同于 Object.create(Object.prototype) ， `__proto__` 指向 Object.prototype
+3. {} 等同于 new Object()
+
+### new 和 Object.create 的区别
+- new 只可以实例化构造函数
+- Object.create 可以传入构造函数、对象、null
+- new 的实例化对象的 `__proto__` 指向构造函数的原型；Object.create(constructor) 的实例化对象的 `__proto__` 指向构造函数本身。
+- Object.create(constructor) 创建出来的实例对象，不可以访问构造函数本身的属性 `this.***` 
+```
+var Parent =  function(){
+  this.name = "Zong"
+}
+var Parent2 = {
+  name:"zong"
+};
+let child1 = new Parent();
+let child2 = Object.create(Parent);
+let child3 = Object.create(Parent2);
+console.log(child1);//Parent {name: "Zong"}
+console.log(child2);//Function {}
+console.log(child3);//{},这里返回了一个对象但这个对象的__proto__.name为"Zong"
+
+// chile2.proto => Parent => 
+// Parent.proto => Function.prototype => 
+// Function.prototype.proto => Object.prototype.proto => null
+```
+
+## 原型
+- 所有 **函数**都有一个 `prototype` 。默认函数的原型包含两个属性 `constructor` 和 `__proto__`
+- 所有 **对象**中都包含一个 `__proto__` (非标准)的属性指向父级的 `prototype` (该对象的原型)
+- 所有引用类型的 `__proto__` 属性指向它构造函数的 `prototype`
 
 ```
 var fun = function(){}
@@ -58,3 +105,12 @@ console.log( fun.prototype )
 // __proto__: Object
 
 ```
+
+## 原型链
+如果 Child 的原型对象的 prototype 指向 Parent 的实例对象 p ，此时如果实例化一个A的实例对象 c，那么 `c.__proto__` 指向 `Child.prototype` 指向 p， `p.__proto__` 指向 `Parent.prototype` 。这样就形成了一个实例与原型的链条。
+
+当访问对象 c 的某个属性时，会先在 c 本身查找，如果没有则去查找 `c.__proto__` 即 `Child.prototype`；如果还没有，则继续在构造函数 Child 的 `prototype` 的 `__proto__` 上继续查找，即 `p.__proto__` / `Parent.prototype`，这样一层一层向上查找就会形成一个链式结构，我们称为**原型链**。 
+
+沿着原型链查找，直到到null还没有找到，则返回undefined。`Object.prototype.__proto__ === null`
+
+![prototype](./img/prototype.png)
