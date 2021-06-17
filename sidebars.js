@@ -37,8 +37,14 @@ module.exports = {
     'tools/git-command',
     'tools/commitizen',
     'tools/husky',
+    'tools/webpack',
   ],
   "doc": [
+    {
+      'frontEnd': [
+        'frontEnd/interview/index'
+      ]
+    },
     {
       'vue 3.x': [
         'frontEnd/vue3/component',
@@ -46,10 +52,12 @@ module.exports = {
         'frontEnd/vue3/reactivity-api',
         'frontEnd/vue3/store',
         'frontEnd/vue3/proxy',
+        'frontEnd/vue3/common-api',
       ]
     },
     {
       'vue': [
+        'frontEnd/vue/vuex',
         'frontEnd/vue/less',
       ]
     },
@@ -62,6 +70,13 @@ module.exports = {
       ]
     },
     'frontEnd/plugins/echart',
+    'frontEnd/plugins/animate',
+    {
+      'javascript':[
+        'frontEnd/javascript/guide',
+        'frontEnd/javascript/prototype',
+      ]
+    },
     {
       'typescript':[
         'frontEnd/typescript/guide',

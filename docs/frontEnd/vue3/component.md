@@ -4,7 +4,7 @@ sidebar_position: 1
 title: 实例组件
 ---
 
-## 创建应用实例
+## 创建应用实例 
 
 ```
   const app = Vue.createApp({}).mount('#app')

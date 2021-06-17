@@ -33,7 +33,7 @@ module.exports = {
         {
           label: '前端',
           type: 'doc',
-          docId: 'frontEnd/vue3/component',
+          docId: 'frontEnd/interview/index',
           position: 'right',
         },
         {
