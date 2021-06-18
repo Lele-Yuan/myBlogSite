@@ -1,7 +1,7 @@
 ---
 id: component
 sidebar_position: 1
-title: 实例组件
+title: createApp
 ---
 
 ## 创建应用实例 

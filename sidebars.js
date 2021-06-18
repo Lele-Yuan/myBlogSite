@@ -75,6 +75,7 @@ module.exports = {
       'javascript':[
         'frontEnd/javascript/guide',
         'frontEnd/javascript/prototype',
+        'frontEnd/javascript/es6',
       ]
     },
     {

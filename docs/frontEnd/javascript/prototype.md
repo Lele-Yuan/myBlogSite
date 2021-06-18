@@ -86,6 +86,54 @@ console.log(child3);//{},这里返回了一个对象但这个对象的__proto__.
 // Function.prototype.proto => Object.prototype.proto => null
 ```
 
+### instanceof 运算符
+语法 `object instanceof constructor`。 用来判断一个对象原型链上是否存在某个构造函数的原型 `prototype`。
+
+会一直沿着原型链查找，直到找到 `x.__proto__.__proto__...===y.prototype` 为止，即 x为y的实例。
+
+手写一个 instanceof 方法
+```
+  // 主函数
+  function newInstanceof(current, target) {
+    // 获取左边的__proto__
+      let left = current.__proto__
+      
+      // 获取右边的prototype
+      let right = target.prototype
+      
+      // while循环查找左边的__proto__
+      while(left) {
+        if(left === right) {
+            return true
+          }
+          
+          left = left.__proto__
+      }
+      
+      return false
+  }
+
+  // 测试  
+  console.log(newInstanceof('123', String))
+```
+
+### 获取数据类型的方式
+
+1. typeof(a)
+   只能获取到普通数据类型： number boolean string undefined object functon ； 无法判断对象的具体类型。 返回值为类型字符串，例如 `string`
+
+2. Object.prototype.toString.call(a))
+   可以区分具体的对象类型; 无法判断自定义对象类型。返回值为 类型的字符串，例如 `[object Array]` 
+
+3. a instanceof A
+   可以判断对象类型，但不可以区分基本数据类型 String Number Boolean Undefined Null Symbol。返回值为 boolean 
+
+4. a.constructor == A
+   查看数据的构造函数， `.name` 为构造函数名称。
+
+
+
+
 ## 原型
 - 所有 **函数**都有一个 `prototype` 。默认函数的原型包含两个属性 `constructor` 和 `__proto__`
 - 所有 **对象**中都包含一个 `__proto__` (非标准)的属性指向父级的 `prototype` (该对象的原型)
@@ -114,3 +162,14 @@ console.log( fun.prototype )
 沿着原型链查找，直到到null还没有找到，则返回undefined。`Object.prototype.__proto__ === null`
 
 ![prototype](./img/prototype.png)
+
+## this
+通常指向调用这个方法或函数的对象。
+[this 指向问题](https://www.cnblogs.com/lisha-better/p/5684844.html)
+
+箭头函数的this 一旦创建，不可以修改。
+
+改变this指向的方式：new call/apply setTimeout/setInterval
+- new 的 this 指向实例对象
+- call/apply 的 this 指向第一个参数对象
+- setTimeout/setInterval 中的 this 指向 window 对象；解决办法**使用箭头函数**
