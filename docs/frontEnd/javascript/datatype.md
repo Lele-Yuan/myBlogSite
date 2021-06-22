@@ -1,7 +1,7 @@
 ---
-id: guide
+id: datatype
 sidebar_position: 1
-title: JavaScript
+title: 数据类型
 ---
 
 ## 数据类型

@@ -1,7 +1,7 @@
 ---
 id: prototype
-sidebar_position: 1
-title: 原型 原型链
+sidebar_position: 2
+title: 原型 原型链 this
 ---
 
 ![构造函数和实例对象](./img/constructor.jpg)
@@ -163,13 +163,35 @@ console.log( fun.prototype )
 
 ![prototype](./img/prototype.png)
 
-## this
+## this 指向
 通常指向调用这个方法或函数的对象。
 [this 指向问题](https://www.cnblogs.com/lisha-better/p/5684844.html)
+[逐梦子](https://juejin.cn/post/6844903462984155143)
 
-箭头函数的this 一旦创建，不可以修改。
+箭头函数的this 一旦创建，不可以修改。所以不可以作为构造函数
 
 改变this指向的方式：new call/apply setTimeout/setInterval
 - new 的 this 指向实例对象
 - call/apply 的 this 指向第一个参数对象
 - setTimeout/setInterval 中的 this 指向 window 对象；解决办法**使用箭头函数**
+
+构造函数 return 实例 this 指向问题
+- 如果 return 对象， this 指向 返回的对象
+- 如果 return 非对象，this 指向函数的实例 （undefined null 也是非对象）
+```
+function fn()  
+{  
+  this.user = '追梦子';  
+  return {};  
+}
+var a = new fn;  
+console.log(a.user); //undefined
+
+function fn()  
+{  
+  this.user = '追梦子';  
+  return undefined;
+}
+var a = new fn;  
+console.log(a.user); //追梦子
+```

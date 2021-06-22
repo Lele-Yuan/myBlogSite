@@ -1,10 +1,10 @@
 ---
 id: store
-sidebar_position: 4
+sidebar_position: 5
 title: 状态管理
 ---
 
-使用 [project / inject](composition-api#proviee--inject) 注入 代替 vuex 状态管理
+使用 [project / inject](setup#proviee--inject) 注入 代替 vuex 状态管理
 
 ```
   // store.ts 

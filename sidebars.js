@@ -42,13 +42,16 @@ module.exports = {
   "doc": [
     {
       'frontEnd': [
-        'frontEnd/interview/index'
+        'frontEnd/interview/index',
+        'frontEnd/interview/browser',
+        'frontEnd/interview/performance',
       ]
     },
     {
       'vue 3.x': [
+        'frontEnd/vue3/vue2',
         'frontEnd/vue3/component',
-        'frontEnd/vue3/composition-api',
+        'frontEnd/vue3/setup',
         'frontEnd/vue3/reactivity-api',
         'frontEnd/vue3/store',
         'frontEnd/vue3/proxy',
@@ -58,6 +61,8 @@ module.exports = {
     {
       'vue': [
         'frontEnd/vue/vuex',
+        'frontEnd/vue/I18n',
+        'frontEnd/vue/vueRouter',
         'frontEnd/vue/less',
       ]
     },
@@ -73,9 +78,12 @@ module.exports = {
     'frontEnd/plugins/animate',
     {
       'javascript':[
-        'frontEnd/javascript/guide',
+        'frontEnd/javascript/datatype',
         'frontEnd/javascript/prototype',
         'frontEnd/javascript/es6',
+        'frontEnd/javascript/promise',
+        'frontEnd/javascript/eventLoop',
+        'frontEnd/javascript/extends',
       ]
     },
     {

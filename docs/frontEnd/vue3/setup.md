@@ -1,7 +1,7 @@
 ---
-id: composition-api
-sidebar_position: 2
-title: Composition API
+id: setup
+sidebar_position: 3
+title: setup
 ---
 
 组合式 API
@@ -10,9 +10,9 @@ title: Composition API
 
 ## setup 选项
 
-调用时机：创建组件实例、初始化props、调用setup函数；相当于 vue2 中 beforeCreated 之后 creted 之前。
+调用时机：创建组件实例、初始化props、调用setup函数。
 
-setup 作为组合式API的入口，在组件创建之前执行。
+setup 作为组合式API的入口，在组件创建之前执行。它是在 beforeCreate 钩子之前调用的
 
 setup 接收两个参数 `prop` `context` 。
 

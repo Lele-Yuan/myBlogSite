@@ -4,6 +4,7 @@ sidebar_position: 1
 title: 知识
 ---
 
+![面试知识点](./img/front.png)
 
 ## css 
 - css预处理器 less、sass
@@ -12,20 +13,16 @@ title: 知识
 
 
 ## javascript
-- 原型 / 构造函数 / 实例
-  <details>
-  <summary>原型 / 构造函数 / 实例</summary>
-  - prototype
-  - constructor
-  </details>
-
+- [数据类型](/docs/frontEnd/javascript/datatype)
+- [原型 / 构造函数 / 实例](/docs/frontEnd/javascript/prototype)
+- [ES6新增功能](/docs/frontEnd/javascript/es6)
 - event loop
 - lodash 库
-- 同源策略 跨域 如何解决
-- async await promise
-- 浏览器缓存
+- 同源策略 跨域如何解决
+- async await 
+- [promise](/docs/frontEnd/javascript/promise)
+- [浏览器缓存](/docs/frontEnd/interview/browser#http-缓存)
 - 设计模式
-- es6 map set WeakMap WeakSet
 
 
 
@@ -34,11 +31,12 @@ title: 知识
 - vue 实现响应式的原理
 - vue 渲染更新原理
 - vue virtual DOM 的 diff 逻辑
-- vuex vue-router
+- [vuex](/docs/frontEnd/vue/vuex)
+- [vue-router](/docs/frontEnd/vue/vueRouter)
 
 ## 性能
-- 从输入url到页面显示，发生了啥玩意
-- 如何让文件加载更快(缓存，网络)
+- [从输入url到页面显示，发生了什么](/docs/frontEnd/interview/browser)
+- [性能优化方案](/docs/frontEnd/interview/performance)
 
 
 ## 工程化

@@ -2,7 +2,7 @@
 module.exports = {
   title: 'My Blog Site',
   tagline: 'Dinosaurs are cool',
-  url: 'https://github.com/Lele-Yuan/myBlogSite.git',
+  url: 'http://doc.unclejia.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -57,7 +57,7 @@ module.exports = {
           items: [
             {
               label: 'Tutorial',
-              to: '/docs/intro',
+              to: '/docs/introduce',
             },
           ],
         },
