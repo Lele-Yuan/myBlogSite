@@ -14,6 +14,7 @@ title: createApp
 vue 应用通过 `createApp` 函数创建一个新的应用实例，出自 `@vue/runtime-dom/dist/runtime-dom.cjs.prod.js`。返回一个带有 `mount` 方法的实例对象。**核心包括两个部分，`createRenderer` 和 `mount`**。
 
 [vue3 源码解读(一)-createApp](https://juejin.cn/post/6881910894473773069)
+[vue3 源码解析update和diff](https://zhuanlan.zhihu.com/p/372671989)
 
 ### createApp 源码解读
 

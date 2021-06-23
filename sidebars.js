@@ -60,9 +60,11 @@ module.exports = {
     },
     {
       'vue': [
+        'frontEnd/vue/mvvm',
         'frontEnd/vue/vuex',
         'frontEnd/vue/I18n',
         'frontEnd/vue/vueRouter',
+        'frontEnd/vue/diff',
         'frontEnd/vue/less',
       ]
     },
@@ -84,11 +86,17 @@ module.exports = {
         'frontEnd/javascript/promise',
         'frontEnd/javascript/eventLoop',
         'frontEnd/javascript/extends',
+        'frontEnd/javascript/DOM',
       ]
     },
     {
       'typescript':[
         'frontEnd/typescript/guide',
+      ]
+    },
+    {
+      'network':[
+        'frontEnd/network/http',
       ]
     },
   ],

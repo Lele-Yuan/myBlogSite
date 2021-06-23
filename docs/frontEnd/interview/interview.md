@@ -14,16 +14,17 @@ title: 知识
 
 ## javascript
 - [数据类型](/docs/frontEnd/javascript/datatype)
-- [原型 / 构造函数 / 实例](/docs/frontEnd/javascript/prototype)
+- [原型 / 构造函数 / 实例 / this](/docs/frontEnd/javascript/prototype)
+- [继承](/docs/frontEnd/javascript/extends)
 - [ES6新增功能](/docs/frontEnd/javascript/es6)
-- event loop
-- lodash 库
+- [event loop](/docs/frontEnd/javascript/eventLoop)
+- lodash js 工具库
 - 同源策略 跨域如何解决
 - async await 
 - [promise](/docs/frontEnd/javascript/promise)
+- [ES6](/docs/frontEnd/javascript/es6)
 - [浏览器缓存](/docs/frontEnd/interview/browser#http-缓存)
 - 设计模式
-
 
 
 ## 框架

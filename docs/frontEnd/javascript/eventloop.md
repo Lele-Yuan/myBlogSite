@@ -40,6 +40,11 @@ JavaScript 任务 task 被分成**宏任务 MacroTask 和微任务 MircoTask **�
 - 宏任务中的 Promise.then/catch/finally 是该宏任务层的微任务。
 - 宏任务中的 **非微任务异步执行代码** 将作为下一层的宏任务等待执行。
 
+## vue nextTick
+vue 中数据更新后，立即获取dom未更新；需要在this.$nextTick中调用，就是依据的 EventLoop 原理。
+
+nextTick延迟调用优先级顺序为： Promise.then() > MutationObserver > setImmediate > setTimeout
+
 ## 案例
 ```
 console.log('1');
