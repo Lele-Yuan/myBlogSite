@@ -19,7 +19,7 @@ title: 知识点
 - [ES6新增功能](/docs/frontEnd/javascript/es6)
 - [event loop](/docs/frontEnd/javascript/eventLoop)
 - lodash js 工具库
-- [同源策略 跨域如何解决](docs/frontEnd/network/http#跨域)
+- [同源策略 跨域如何解决](/docs/frontEnd/network/http#跨域)
 - async await 
 - [promise](/docs/frontEnd/javascript/promise)
 - [ES6](/docs/frontEnd/javascript/es6)
