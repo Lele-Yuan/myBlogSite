@@ -20,6 +20,8 @@ Internet Explorer（11.0.9600.18036） ： 16386 122066 122070个字符
 ## JavaScript
 ### 使用过 ES6 的什么api
 ### ES6 的 proxy 和 reflect
+### ES6 的 Set 和 Map
+### ES6 的箭头函数
 ### Promise 
   - Promise 是为了解决什么问题？ 
   - Promise 有哪些API？
@@ -59,6 +61,8 @@ Internet Explorer（11.0.9600.18036） ： 16386 122066 122070个字符
 ### 组件中的 name 属性作用是什么
 - 嵌套组件可以通过 name 引入自身
 ### vue 通过下标的改写数组的值，页面为什么不更新，如何解决
+### npm 组件库开发流程
+### npm 组件库开发过程中如何进行调试
 
 ## 性能优化
 ### 针对浏览器做的优化
@@ -79,6 +83,7 @@ Internet Explorer（11.0.9600.18036） ： 16386 122066 122070个字符
 ### webpack 的优化
 #### 打包的大小
 ### webpack loader 和 plugin
+### webpack 的 compiler 对象
 
 ## http
 ### http1 和 http2 的区别
@@ -97,7 +102,10 @@ Internet Explorer（11.0.9600.18036） ： 16386 122066 122070个字符
 
 ## CSS 
 ### flex 布局的常用属性
+### flex: 1 是什么
+### 如何实现响应式布局
 ### css3 的伪类选择器都有哪些
+### less 如何定义变量和函数
 
 ## 业务相关思路
 ### 权限控制应该怎么设计
