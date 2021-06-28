@@ -104,3 +104,6 @@ setup () {
   }
 }
 ```
+### 路由监听
+- vue2 可以通过 watch $route 来获取路由变化
+- vue3 通过 vue-router 暴露出来的 onBeforeRouteUpdate 来获取

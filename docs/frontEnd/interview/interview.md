@@ -1,7 +1,7 @@
 ---
 id: index
 sidebar_position: 1
-title: 知识
+title: 知识点
 ---
 
 ![面试知识点](./img/front.png)
@@ -19,7 +19,7 @@ title: 知识
 - [ES6新增功能](/docs/frontEnd/javascript/es6)
 - [event loop](/docs/frontEnd/javascript/eventLoop)
 - lodash js 工具库
-- 同源策略 跨域如何解决
+- [同源策略 跨域如何解决](docs/frontEnd/network/http#跨域)
 - async await 
 - [promise](/docs/frontEnd/javascript/promise)
 - [ES6](/docs/frontEnd/javascript/es6)
@@ -51,3 +51,21 @@ title: 知识
 ## 小程序
 - 渲染计算数据 .wxs 文件
 - 页面跳转的几种 navigateTo redirectTo switchTab reLaunch 
+
+## 算法
+(遍历二叉树)[https://juejin.cn/post/6844903998059708429]
+
+## 掘金
+[字节](https://juejin.cn/post/6844904088337907720)
+[2021年前端面试](https://juejin.cn/post/6931530881924333575)
+[Webpack揭秘](https://juejin.cn/post/6844903685407916039)
+[Promise 中的三兄弟](https://segmentfault.com/a/1190000020034361)
+[JavaScript module](https://blog.csdn.net/jyb123/article/details/81207264)
+[script标签中的async和defer](https://www.cnblogs.com/jiasm/p/7683930.html)
+[vue3.0尝鲜，写一个win10日历](https://juejin.cn/post/6844904144667574286)
+[CSS Scoped](https://juejin.cn/post/6844903949900742670)
+[浏览器渲染过程与性能优化](https://juejin.cn/post/6844904040346681358)
+[webpack打包时生成个zip压缩包](https://juejin.cn/post/6972741467605303304)
+[聊一聊前端性能优化](https://juejin.cn/post/6911472693405548557)
+[二叉树的各种遍历方式](https://juejin.cn/post/6844903998059708429)
+[vue递归组件的用法](https://blog.csdn.net/badmoonc/article/details/80380557)

@@ -45,6 +45,7 @@ module.exports = {
         'frontEnd/interview/index',
         'frontEnd/interview/browser',
         'frontEnd/interview/performance',
+        'frontEnd/interview/questions',
       ]
     },
     {
@@ -65,6 +66,7 @@ module.exports = {
         'frontEnd/vue/I18n',
         'frontEnd/vue/vueRouter',
         'frontEnd/vue/diff',
+        'frontEnd/vue/for',
         'frontEnd/vue/less',
       ]
     },
@@ -84,9 +86,16 @@ module.exports = {
         'frontEnd/javascript/prototype',
         'frontEnd/javascript/es6',
         'frontEnd/javascript/promise',
+        'frontEnd/javascript/asyncawait',
         'frontEnd/javascript/eventLoop',
         'frontEnd/javascript/extends',
-        'frontEnd/javascript/DOM',
+        'frontEnd/javascript/webStorage',
+      ]
+    },
+    {
+      'css':[
+        'frontEnd/css/index',
+        'frontEnd/css/DOM',
       ]
     },
     {

@@ -1,7 +1,7 @@
 ---
 id: DOM
-sidebar_position: 7
-title: DOM
+sidebar_position: 2
+title: 回流和重绘
 ---
 
 ## 重排(回流) 重绘
