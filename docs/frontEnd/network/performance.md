@@ -1,6 +1,6 @@
 ---
 id: performance
-sidebar_position: 3
+sidebar_position: 2
 title: 性能优化
 ---
 
@@ -49,5 +49,5 @@ title: 性能优化
 
 ## 使用高效的时间处理
 - 减少绑定时间监听的节点，使用事件委托；
-- 今早处理事件，在 DOMContentLoaded 即可进行；
+- 尽早处理事件，在 DOMContentLoaded 即可进行；
 - 高频触发的事件，使用 debounce 等机制降低执行频率。

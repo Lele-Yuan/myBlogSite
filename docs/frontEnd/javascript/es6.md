@@ -188,7 +188,7 @@ function forOf(obj, cb) {
 
 [Map WeakMap](/docs/frontEnd/javascript/datatype#字典-map-weakmap)
 
-## Destructuring 解构赋值 
+## 解构赋值 Destructuring
 ### 数组解构
 - 按照对应位置，对变量赋值。属于“模式匹配”，只要等号两边的模式相同，左边的变量就会被赋予对应的值。
 - 如果解构失败则变量值为 undefined
@@ -262,4 +262,62 @@ let x;
   - rest 只包含了没有对应形参的实参，arguments包含了传给函数的所有实参
   - rest 是 Array 的实例，arguments 不是一个真是的数组
   - rest 参数没有附加属性，arguments 对象包含如 callee 等属性
+
+## Proxy
+Proxy意思是代理，访问对象之前建立的一层拦截。任何对对象的操作都需要经过这层拦截，即执行Proxy里面定义的方法。
+### 使用方法
+```
+let proxy = new Proxy(target, handler);
+// handler 参数是一个对象，用来定制拦截行为
+```
+### Proxy 拦截行为
+- **get(target, propKey, receiver)**：拦截对象属性的读取；
+- **set(target, propKey, value, receiver)**：拦截对象属性的设置；
+- **has(target, propKey)**：拦截propKey in proxy的操作，返回一个 Boolean 值
+- **deleteProperty(target, propKey)**：拦截delete proxy[propKey]的操作，返回一个布尔值。
+- **ownKeys(target)**：拦截Object.getOwnPropertyNames(proxy)、Object.getOwnPropertySymbols(proxy)、Object.keys(proxy)、for...in循环，返回一个数组。该方法返回目标对象所有自身的属性的属性名，而Object.keys()的返回结果仅包括目标对象自身的**可遍历**属性。
+- **getOwnPropertyDescriptor(target, propKey)**：拦截Object.getOwnPropertyDescriptor(proxy, propKey)，返回属性的描述对象。
+- **defineProperty(target, propKey, propDesc)**：拦截Object.defineProperty(proxy, propKey, propDesc）、Object.defineProperties(proxy, propDescs)，返回一个布尔值。
+- **preventExtensions(target)**：拦截Object.preventExtensions(proxy)，返回一个布尔值。
+- **getPrototypeOf(target)**：拦截Object.getPrototypeOf(proxy)，返回一个对象。
+- **isExtensible(target)**：拦截Object.isExtensible(proxy)，返回一个布尔值。
+- **setPrototypeOf(target, proto)**：拦截Object.setPrototypeOf(proxy, proto)，返回一个布尔值。
+- **apply(target, object, args)**：拦截 Proxy 实例作为函数调用的操作，比如proxy(...args)、proxy.call(object, ...args)、proxy.apply(...)。
+- **construct(target, args)**：拦截 Proxy 实例作为构造函数调用的操作，比如new proxy(...args)。
+
+## Reflect
+Reflect 对象不是个构造函数，创建的时候不是用 new 创建。
+### 为什么需要 Refect
+Reflect 对象让能够实现反射机制的方法都归结于一个地方并做了简化。
+
+```
+var s = Symbol('foo');
+var k = 'bar';
+var o = { [s]: 1, [k]: 1 };
+
+// ES 5
+Object.prototype.hasOwnProperty.call(myObject, 'foo')
+// getOwnPropertyNames获取到String类型的key，getOwnPropertySymbols获取到Symbol类型的key
+var keys = Object.getOwnPropertyNames(o).concat(Object.getOwnPropertySymbols(o));
+
+// ES6
+Reflect.ownKeys(myObject)
+```
+
+### Reflect 的静态方法
+Reflect对象一共有 13 个静态方法（匹配Proxy的13种拦截行为）。方法名和 Proxy 对象的方法是一一对应的。
+[参考链接](https://zhuanlan.zhihu.com/p/92700557)
+- **Reflect.apply(target, thisArg[, argumentsList])**：通过指定的参数列表对该目标函数的调用。args 
+- **Reflect.construct(target, args[, constructorToCreateThis])**：等价于 new target(...args)
+- **Reflect.get(target, name[, receiver])**：该方法是用来读取一个对象的属性。
+- **Reflect.set(target, name, value[, receiver])**：设置该对象的属性值了。该函数返回一个Boolean，表示目标对象上设置属性是否成功。
+- **Reflect.defineProperty(target, name, desc)**：类似 Object.defineProperty() ，需要通过try/catch捕获异常。Reflect.defineProperty() 返回值为 Boolean 类型，表示执行是否正确。
+- **Reflect.deleteProperty(target, name)**：相当于 delete target[name]
+- **Reflect.has(target, name)**：类似于 in 操作富符，Reflect.has 返回Boolean 表示属性是否在对象或者原型链上。
+- **Reflect.ownKeys(target)**：返回target所包含的所有属性的数组。(包含 symbol 类型属性，不包含原型链)
+- **Reflect.isExtensible(target)**：方法判断一个对象是否是可扩展的(是否可以在它上面添加新的属性)。
+- **Reflect.preventExtensions(target)**
+- **Reflect.getOwnPropertyDescriptor(target, name)**
+- **Reflect.getPrototypeOf(target)**
+- **Reflect.setPrototypeOf(target, prototype)**
 

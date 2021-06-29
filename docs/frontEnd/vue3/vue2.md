@@ -44,17 +44,16 @@ vue3 缓存事件监听
 
 ## 使用区别
 ### template 标签
-vue3 的 Template 支持 Fragments (碎片) 也就是多个根标签； vue2 只能有一个根节点
+vue3 的 Template 支持 Fragments (碎片) 也就是多个根标签； vue2 使用 createElement 只能有一个根节点
 
 ## 初始化
 vue3 使用 createApp(组件)
 vue2 使用 new Vue()
 
-## setup
-
+## API 使用
 ### data
 template 中如何使用 vue 声明的响应式数据。 **{{ username }}**
-#### vue2 data
+#### vue2 data 属性
 vue2 将数据放到 data 属性中
   ```
   data () {
@@ -83,6 +82,31 @@ export default {
   }
 }
 ```
+### computed
+#### vue2 method 属性
+```
+export default {
+  computed: {
+    lowerCaseUsername () {
+      return this.username.toLowerCase()
+    }
+  }
+}
+```
+#### vue3 computed
+```
+import { reactive, computed } from 'vue'
+
+export default {
+  setup () {
+    const state = reactive({
+      username: '',
+      lowerCaseUsername: computed(() => state.username.toLowerCase())
+    })
+    return{ state }
+  }
+}
+```
 
 ### method 
 #### vue2 methods 属性
@@ -104,6 +128,36 @@ setup () {
   }
 }
 ```
-### 路由监听
-- vue2 可以通过 watch $route 来获取路由变化
+### Lifecycle Hooks
+#### vue2 声明周期属性
+beforeCreated、 created、 beforeMounted、 mounted、 beforeUpdate、 update、 beforeDestory、 destory
+#### vue3 引入生命周期钩子
+onMounted ...
+```
+import { onMounted } from 'vue'
+export default {
+  setup () {
+    onMounted(() => {
+      console.log('组件已挂载')
+    })
+  }
+}
+```
+
+### 路由
+#### 获取路由参数
+- vue2 可以通过 this.$route.query/params
+- vue3 通过 useRoute() 获取
+```
+import { useRoute } from 'vue-router'
+const route = useRoute()
+route.query/params
+```
+
+## 路由监听
+- vue2 可以通过 watch $route 来获取路由参数变化
+- vue3 可以通过watch query/params 来获取路由参数变化
+
+#### 组件中的路由守卫
+- vue2 通过 beforeRouterEnter/beforeRouterLeave 属性做路由守卫
 - vue3 通过 vue-router 暴露出来的 onBeforeRouteUpdate 来获取

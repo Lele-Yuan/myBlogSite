@@ -44,7 +44,6 @@ module.exports = {
       'frontEnd': [
         'frontEnd/interview/index',
         'frontEnd/interview/browser',
-        'frontEnd/interview/performance',
         'frontEnd/interview/questions',
       ]
     },
@@ -106,6 +105,7 @@ module.exports = {
     {
       'network':[
         'frontEnd/network/http',
+        'frontEnd/network/performance',
       ]
     },
   ],

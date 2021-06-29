@@ -253,3 +253,9 @@ function flatten(arr){
 
 ### every
 同样需要传入一个返回 boolean 的回调函数，判断是否每一个元素都满足条件，全部满足则返回 true ，有一个不满足则返回 false 并停止遍历。
+
+## Object 遍历
+Object.keys()
+for in
+Object.getOwnPropertyNames()
+Reflect.ownKeys()
