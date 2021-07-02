@@ -273,17 +273,61 @@ let proxy = new Proxy(target, handler);
 ### Proxy 拦截行为
 - **get(target, propKey, receiver)**：拦截对象属性的读取；
 - **set(target, propKey, value, receiver)**：拦截对象属性的设置；
-- **has(target, propKey)**：拦截propKey in proxy的操作，返回一个 Boolean 值
-- **deleteProperty(target, propKey)**：拦截delete proxy[propKey]的操作，返回一个布尔值。
-- **ownKeys(target)**：拦截Object.getOwnPropertyNames(proxy)、Object.getOwnPropertySymbols(proxy)、Object.keys(proxy)、for...in循环，返回一个数组。该方法返回目标对象所有自身的属性的属性名，而Object.keys()的返回结果仅包括目标对象自身的**可遍历**属性。
-- **getOwnPropertyDescriptor(target, propKey)**：拦截Object.getOwnPropertyDescriptor(proxy, propKey)，返回属性的描述对象。
-- **defineProperty(target, propKey, propDesc)**：拦截Object.defineProperty(proxy, propKey, propDesc）、Object.defineProperties(proxy, propDescs)，返回一个布尔值。
-- **preventExtensions(target)**：拦截Object.preventExtensions(proxy)，返回一个布尔值。
-- **getPrototypeOf(target)**：拦截Object.getPrototypeOf(proxy)，返回一个对象。
-- **isExtensible(target)**：拦截Object.isExtensible(proxy)，返回一个布尔值。
-- **setPrototypeOf(target, proto)**：拦截Object.setPrototypeOf(proxy, proto)，返回一个布尔值。
-- **apply(target, object, args)**：拦截 Proxy 实例作为函数调用的操作，比如proxy(...args)、proxy.call(object, ...args)、proxy.apply(...)。
-- **construct(target, args)**：拦截 Proxy 实例作为构造函数调用的操作，比如new proxy(...args)。
+- **has(target, propKey)**：拦截propKey in proxy的操作，返回一个 Boolean 值；
+- **deleteProperty(target, propKey)**：拦截delete proxy[propKey]的操作，返回一个布尔值；
+- **ownKeys(target)**：拦截Object.getOwnPropertyNames(proxy)、Object.getOwnPropertySymbols(proxy)、Object.keys(proxy)、for...in循环，返回一个数组。该方法返回目标对象所有自身的属性的属性名，而Object.keys()的返回结果仅包括目标对象自身的**可遍历**属性；
+- **getOwnPropertyDescriptor(target, propKey)**：拦截Object.getOwnPropertyDescriptor(proxy, propKey)，返回属性的描述对象；
+- **defineProperty(target, propKey, propDesc)**：拦截Object.defineProperty(proxy, propKey, propDesc）、Object.defineProperties(proxy, propDescs)，返回一个布尔值；
+- **preventExtensions(target)**：拦截Object.preventExtensions(proxy)，返回一个布尔值；
+- **getPrototypeOf(target)**：拦截Object.getPrototypeOf(proxy)，返回一个对象；
+- **isExtensible(target)**：拦截Object.isExtensible(proxy)，返回一个布尔值；
+- **setPrototypeOf(target, proto)**：拦截Object.setPrototypeOf(proxy, proto)，返回一个布尔值；
+- **apply(target, object, args)**：拦截 Proxy 实例作为函数调用的操作，比如proxy(...args)、proxy.call(object, ...args)、proxy.apply(...)；
+- **construct(target, args)**：拦截 Proxy 实例作为构造函数调用的操作，比如new proxy(...args)；
+### 如何监听 Map
+许多内置对象，例如 Set Map Data Promise 等都使用了内置方法，不是通过 `[[get]]` `[[set]]` 这两个内部方法访问
+```
+let map = new Map([['test', 1]]);
+
+let proxy = new Proxy(map, {});
+
+proxy.get('test', 1); // Error
+```
+Map 将所有数据存储到 `[[MapData]]` 中，可以通过 Map.prototype.get 来访问内部属性 this.MapData 但是由于调用get时的this 是 proxy 找不到 mapData 所以Error。一种解决方案，通过 proxy 的 get 钩子将函数属性(map.set / map.get)绑定到目标对象本身(receiver 也即是 map)。
+```
+let map = new Map();
+
+let proxy = new Proxy(map, {
+  get(target, prop, receiver) {
+    let value = Reflect.get(...arguments);
+    return typeof value == 'function' ? value.bind(target) : value;
+  }
+});
+
+proxy.set('test', 1);
+console.log(proxy.get('test')); // 1 (works!)
+```
+### 如何取消 Proxy
+Proxy.revocable(object, handler) 返回对象中会包含一个取消的方法 revoke 用来取消对 object 的代理。
+- revoke 可以存储在 WeakMap 中， key 为 proxy 对象， value 为 revoke
+- [参考链接](https://juejin.cn/post/6844904090116292616)
+```
+let revokes = new WeakMap();
+
+let object = {
+  data: "Valuable data"
+};
+
+let {proxy, revoke} = Proxy.revocable(object, {});
+
+revokes.set(proxy, revoke);
+
+// ..later in our code..
+revoke = revokes.get(proxy);
+revoke();
+
+alert(proxy.data); // Error（已吊销）
+```
 
 ## Reflect
 Reflect 对象不是个构造函数，创建的时候不是用 new 创建。
@@ -309,7 +353,7 @@ Reflect对象一共有 13 个静态方法（匹配Proxy的13种拦截行为）�
 [参考链接](https://zhuanlan.zhihu.com/p/92700557)
 - **Reflect.apply(target, thisArg[, argumentsList])**：通过指定的参数列表对该目标函数的调用。args 
 - **Reflect.construct(target, args[, constructorToCreateThis])**：等价于 new target(...args)
-- **Reflect.get(target, name[, receiver])**：该方法是用来读取一个对象的属性。
+- **Reflect.get(target, name[, receiver])**：该方法是用来读取一个对象的属性。 receiver 的作用是指定 this
 - **Reflect.set(target, name, value[, receiver])**：设置该对象的属性值了。该函数返回一个Boolean，表示目标对象上设置属性是否成功。
 - **Reflect.defineProperty(target, name, desc)**：类似 Object.defineProperty() ，需要通过try/catch捕获异常。Reflect.defineProperty() 返回值为 Boolean 类型，表示执行是否正确。
 - **Reflect.deleteProperty(target, name)**：相当于 delete target[name]

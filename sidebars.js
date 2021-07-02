@@ -66,7 +66,9 @@ module.exports = {
         'frontEnd/vue/vueRouter',
         'frontEnd/vue/diff',
         'frontEnd/vue/for',
+        'frontEnd/vue/axios',
         'frontEnd/vue/less',
+        'frontEnd/vue/other',
       ]
     },
     {
