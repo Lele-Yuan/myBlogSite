@@ -1,6 +1,6 @@
 ---
 id: webStorage
-sidebar_position: 8
+sidebar_position: 9
 title: 浏览器存储
 ---
 
@@ -69,6 +69,12 @@ localStorage.removeItem('name');
 // clear() 移除所有数据项
 localStorage.clear();
 ```
+
+### LocalStorage 大小
+[获取LocalStorage大小](https://blog.csdn.net/asdfgh0077/article/details/104016606)
+- Chrome（45.0.2454.101）： 5242878个字符
+- Firefox（40.0.1）： 5242883个字符
+- Internet Explorer（11.0.9600.18036） ： 16386 122066 122070个字符
 
 ## sessionStorage
 是会话级的缓存，关闭浏览器时候数据会被清除。 SessionStorage 的作用域是窗口级别的，不同窗口之间不可以共享。

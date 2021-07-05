@@ -4,6 +4,10 @@ sidebar_position: 1
 title: css知识点
 ---
 
+## BFC
+
+## 实现垂直水平居中的方案
+
 ## flex 弹性布局
 ### flex 基本概念
 - flex 容器(flex container) —— display: flex 的容器；
@@ -41,3 +45,4 @@ title: css知识点
   - 其余可选值和 align-items 一致
 
 ## 响应式布局
+

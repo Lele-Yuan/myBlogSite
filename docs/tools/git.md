@@ -7,6 +7,28 @@ title: GIT COMMAND
 ![GIT COMMAND](./img/git-command.jpeg)
 
 ## git 基本命令
+### git config
+```
+git config --global user.name userName
+git config --global user.email email
+```
+配置级别
+- --local (默认) 只影响本仓库
+- --global 影响所有当前用户的git仓库
+- --system 影响到全系统的git仓库
+
+### git init
+git init 用来初始化git仓库，会生成一个 .git 文件夹(HEAD、branches、config、description、hooks、info、objects、refs)
+
+### git status
+对状态的跟踪。
+- 内容状态
+  - 工作目录
+  - 暂存区
+  - 提交区
+- 文件状态
+  - 未跟踪
+  - 已跟踪
 
 ```
   // 克隆远程代码
@@ -18,6 +40,12 @@ title: GIT COMMAND
   // 撤销本次commit, push之前
   git reset
 ```
+
+
+## git 撤销
+[git reset三种模式](https://www.jianshu.com/p/c2ec5f06cf1a)
+
+## git fetch 和 pull
 
 
 ## git 本地项目关联远程分支
@@ -109,5 +137,32 @@ title: GIT COMMAND
   ```
 
 ## git reset用法
+![git指令](./img/git.webp)
+[Git Reset 三种模式](https://www.jianshu.com/p/c2ec5f06cf1a)
+git的三个区域：
+- Working Tree 当前的工作区域
+- Index/Stage 暂存区域，和git stash命令暂存的地方不一样。使用git add xx，就可以将xx添加近Stage里面
+- Repository 提交的历史，即使用git commit提交后的结果
 
-  [Git Reset 三种模式](https://www.jianshu.com/p/c2ec5f06cf1a)
+### --hard
+- **特点**
+  - 重置HEAD的位置的同时，直接将工作区、暂存区、提交区都重置成 reset 目标节点的内容；效果相当于清空了工作区和暂存区。
+- 应用场景
+  - 放弃本地的所有更改
+  - 确定撤销reset目标节点之后的所有commit
+
+### --soft
+- 特点
+  - 重置HEAD的位置同时，保留工作区和暂存区的内容，让提交区的内容和reset目标节点一致；
+  - 工作区和暂存区原来的内容都不变，原节点和reset目标节点之间的差异集会放入暂存区；
+- 应用场景
+  - 如果工作区和暂存取无记录，可以用于合并当前节点和reset目标节点之间意义不大的提交记录；
+  - 工作区和暂存区没有修改，可以在执行 git reset --soft 后再次执行 git commit
+
+### --mixed
+- 特点
+  - 重置HEAD的位置同时，只保留工作区内容，暂存取和提交区的内容与reset目标节点一致；
+  - 原节点和reset目标节点之间的差异集会放在工作区
+- 应用场景
+  - 和 --soft 的区别是需要多一步 git add
+  - 撤销错误的add/commit，

@@ -28,7 +28,7 @@ webpack 在默认情况下会对 Loader 的执行结果进行缓存，能够提�
 在loader文件里你可以exports一个命名为 pitch 的函数，它会先于所有的loader执行。
 
 ## webpack plugin
-Plugin 负责功能扩展。
+Plugin 负责扩展 webpack 功能。基于事件流框架 Tapable。
 
 一个 Plugin 是一个函数 或者 包含 apply 方法的对象。选择合适的声明周期钩子，通过 **tap** 方法添加订阅这个插件的功能。
 
@@ -44,7 +44,19 @@ afterResolvers - resolver设置完成后触发；
 [compiler hooks](https://webpack.docschina.org/api/compiler-hooks/)
 [compilation hooks](https://webpack.docschina.org/api/compilation-hooks/)
 
+## compiler和compilation
+compiler和compilation是Webpack两个非常核心的对象。
+
+compiler对象是一个全局单例，他负责把控整个webpack打包的构建流程。
+
+compilation对象是每一次构建的上下文对象，它包含了当次构建所需要的所有信息，每次热更新和重新构建，compiler都会重新生成一个新的compilation对象，负责此次更新的构建过程。
+
+compiler暴露了和 Webpack整个生命周期相关的钩子。
+
+compilation则暴露了与模块和依赖有关的粒度更小的事件钩子。
+
 ## webpack 打包优化
 
-[参考链接](https://juejin.cn/post/6844903685407916039)
-[参考链接](https://juejin.cn/post/6943468761575849992)
+- [参考链接](https://juejin.cn/post/6844903685407916039)
+- [webpack 打包流程](https://juejin.cn/post/6943468761575849992)
+- [深入浅出的webpack](http://webpack.wuhaolin.cn/)

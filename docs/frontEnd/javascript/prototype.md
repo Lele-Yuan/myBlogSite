@@ -117,23 +117,6 @@ console.log(child3);//{},这里返回了一个对象但这个对象的__proto__.
   console.log(newInstanceof('123', String))
 ```
 
-### 获取数据类型的方式
-
-1. typeof(a)
-   只能获取到普通数据类型： number boolean string undefined object functon ； 无法判断对象的具体类型。 返回值为类型字符串，例如 `string`
-
-2. Object.prototype.toString.call(a))
-   可以区分具体的对象类型; 无法判断自定义对象类型。返回值为 类型的字符串，例如 `[object Array]` 
-
-3. a instanceof A
-   可以判断对象类型，但不可以区分基本数据类型 String Number Boolean Undefined Null Symbol。返回值为 boolean 
-
-4. a.constructor == A
-   查看数据的构造函数， `.name` 为构造函数名称。
-
-
-
-
 ## 原型
 - 所有 **函数**都有一个 `prototype` 。默认函数的原型包含两个属性 `constructor` 和 `__proto__`
 - 所有 **对象**中都包含一个 `__proto__` (非标准)的属性指向父级的 `prototype` (该对象的原型)

@@ -259,3 +259,19 @@ Object.keys()
 for in
 Object.getOwnPropertyNames()
 Reflect.ownKeys()
+
+
+## 获取数据类型的方式
+
+1. typeof(a)
+   只能获取到普通数据类型： number boolean string undefined object functon ； 无法判断对象的具体类型。 返回值为类型字符串，例如 `string`
+
+2. Object.prototype.toString.call(a))
+   可以区分具体的对象类型; 无法判断自定义对象类型。返回值为 类型的字符串，例如 `[object Array]` 
+
+3. a instanceof A
+   可以判断对象类型，但不可以区分基本数据类型 String Number Boolean Undefined Null Symbol。返回值为 boolean 
+
+4. a.constructor == A
+   查看数据的构造函数， `.name` 为构造函数名称。
+

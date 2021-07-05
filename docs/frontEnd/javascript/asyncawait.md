@@ -73,6 +73,8 @@ async 函数对 Generator 函数的改进：
 
 ## async/await 和 Promise
 async 隐式的返回一个 Promise 对象作为结果， await 后面的函数执行完时， await 指令会产生一个微任务，并跳出 async 函数，执行后面的同步任务。等外层代码执行完毕后，执行权交给 async 继续执行剩余代码，此时在将 await 产生的微任务注册到微任务队列等待执行。
+
+**输出顺序**
 ```
 console.log('script start')
 

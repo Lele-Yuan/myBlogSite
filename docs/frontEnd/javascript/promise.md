@@ -5,6 +5,7 @@ title: promise
 ---
 
 [参考连接](https://www.cnblogs.com/everlose/p/12950564.html)
+[promise和awaiy/async](https://juejin.cn/post/6844904180096712711)
 
 ## Promise 是为了解决什么问题
 Promise 是一种异步编程的解决方案。Promise 为了解决大量异步方法的**回调地狱**问题。代码更便于书写

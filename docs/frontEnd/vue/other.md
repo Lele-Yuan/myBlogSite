@@ -12,7 +12,7 @@ title: 其他
 ### 单文件组件
 一个单文件组件会被 vue-loader 处理成一个 js 文件，当用 import 引入这个组件时实际上是引入了一个 vue 实例，同样需要指定实例的入口。
 
-### vue3 为什么允许多个跟节点
+## vue3 为什么允许多个跟节点
 Vue.js 3.0 支持了 Fragment 的语法，即组件可以有多个根节点。
 
 `document.createDocumentFragment()` 创建出来的节点包含一个虚拟的跟节点，`#document-fragment`

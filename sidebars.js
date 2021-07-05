@@ -65,9 +65,8 @@ module.exports = {
         'frontEnd/vue/I18n',
         'frontEnd/vue/vueRouter',
         'frontEnd/vue/diff',
-        'frontEnd/vue/for',
+        'frontEnd/vue/directive',
         'frontEnd/vue/axios',
-        'frontEnd/vue/less',
         'frontEnd/vue/other',
       ]
     },
@@ -90,13 +89,17 @@ module.exports = {
         'frontEnd/javascript/asyncawait',
         'frontEnd/javascript/eventLoop',
         'frontEnd/javascript/extends',
+        'frontEnd/javascript/memory',
         'frontEnd/javascript/webStorage',
+        'frontEnd/javascript/unittest',
+        'frontEnd/javascript/webwork',
       ]
     },
     {
       'css':[
         'frontEnd/css/index',
         'frontEnd/css/DOM',
+        'frontEnd/css/less_sass',
       ]
     },
     {

@@ -7,7 +7,7 @@ title: 知识点
 ![面试知识点](./img/front.png)
 
 ## css 
-- css预处理器 less、sass
+- [css预处理器 less、sass](/docs/frontEnd/css/less_sass)
 - 如何实现换肤
 - 样式封装
 
@@ -20,7 +20,7 @@ title: 知识点
 - [event loop](/docs/frontEnd/javascript/eventLoop)
 - lodash js 工具库
 - [同源策略 跨域如何解决](/docs/frontEnd/network/http#跨域)
-- async await 
+- [async await](/docs/frontEnd/javascript/asyncawait) 
 - [promise](/docs/frontEnd/javascript/promise)
 - [ES6](/docs/frontEnd/javascript/es6)
 - [浏览器缓存](/docs/frontEnd/interview/browser#http-缓存)
@@ -41,8 +41,9 @@ title: 知识点
 
 
 ## 工程化
-- webpack 打包原理是什么
-- loader plugin
+- [webpack](/docs/tools/webpack)
+  - 打包原理是什么
+  - loader plugin
 - 如何提升保存后更新的速度
 - 如何提升打包速度
 - vite [vite + vue3 ](https://juejin.cn/post/6926822933721513998)

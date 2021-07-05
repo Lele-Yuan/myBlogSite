@@ -263,6 +263,12 @@ let x;
   - rest 是 Array 的实例，arguments 不是一个真是的数组
   - rest 参数没有附加属性，arguments 对象包含如 callee 等属性
 
+## promise
+[promise](/docs/frontEnd/javascript/promise)
+
+## async/await
+[async/await](/docs/frontEnd/javascript/asyncawait)
+
 ## Proxy
 Proxy意思是代理，访问对象之前建立的一层拦截。任何对对象的操作都需要经过这层拦截，即执行Proxy里面定义的方法。
 ### 使用方法
@@ -365,3 +371,90 @@ Reflect对象一共有 13 个静态方法（匹配Proxy的13种拦截行为）�
 - **Reflect.getPrototypeOf(target)**
 - **Reflect.setPrototypeOf(target, prototype)**
 
+## 模块化
+### require/exports
+require/exports 是 CommonJS 模块化方案下的引入导出方式，是为服务器端开发设计的，同步读取模块文件内容，编译执行后的到模块接口。
+
+浏览器端是异步加载脚本文件，CommonJS无法工作，所以浏览器端出现了 RequireJs SeaJs 等方案。
+
+require/exports 是运行时动态加载，输出的是一个值的拷贝。
+
+必须在 require 之后在使用导入的变量。
+
+**用法：**
+- exports 是对 module.exports 的引用，在不改变 exports 的引用的情况下，exports 和 module.exports 无区别，如果将 export 指向其他对象，export会改变，但不影响 module.exports 的输出。
+- require 返回的是 module.exports 输出的所有值的对象。
+
+### import/export
+import/export 是 ES6 实现模块化方案，浏览器无法直接使用，我们需要在引入模块的 `<script>` 元素上添加type="module 属性。
+
+import/export 是静态编译，输出的是对值的引用。
+
+可以在 import 语句之前使用模块。
+
+只能在文件的顶部使用 import 不能在函数内部、判断语句内部引入。
+
+浏览器引入模块的 script 标签需要添加 `type="module` 属性，但不支持 FTP 文件协议(file://) 只支持 HTTP 协议，所以本地开发需要使用 http-server 等服务器打开文件
+
+import() 表达式表示动态加载模块并返回一个 promise 这个promise的 resolve 包含所有导出的模块对象。
+
+**用法：**
+1. export default fs 对应 import fs from ’fs‘
+  - 一个文件只能导出一个 default 模块
+  - 引入 export default 导出的模块不用加 {}
+  - import {default as fs} from 'fs' 可以给 default 取别名 fs
+2. export { readFile } 对应 import { readFile } from 'fs'
+  - 可以使用 * 导出/导入所有模块，虽然方便，但是不利于构建工具检测未使用过的函数(tree-shaking)
+
+## babel 
+Babel 是一个 JavaScript 编译器，能将 ES6 转化成 ES5 代码。
+
+Babel 执行编译的过程中，会从项目根目录下的 `.babelrc` 文件读取配置(JSON格式文件)。
+
+配置项： 
+### plugins 
+plugins 字段告诉 Babel 要使用那些插件来控制代码转换。插件的名称为配置内容增加前缀 `babel-plugin-` 。例如 `transform-runtime` 的插件全称为 `babel-plugin-transform-runtime`， 这个插件是用来减少冗余代码
+```
+"plugins": [
+  [
+    "transform-runtime",
+    {
+      "polyfill": false
+    }
+  ]
+  ],
+```
+
+### Presets
+Presets 属性用来告诉 Babel 要转换的源代码使用来那些新的语法特性。
+
+Presets 是个数组，其中一个 Presets 对一组新语法特性提供支持。
+```
+"presets": [
+  [
+    "es2015",
+    {
+      "modules": false
+    }
+  ],
+  "stage-2",
+  "react"
+]
+```
+
+### 接入 Babel
+在 Webpack 中通过 Loader 接入 Babel
+```
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: ['babel-loader'],
+      },
+    ]
+  },
+  // 输出 source-map 方便直接调试 ES6 源码
+  devtool: 'source-map'
+};
+```
