@@ -43,7 +43,6 @@ module.exports = {
     {
       'frontEnd': [
         'frontEnd/interview/index',
-        'frontEnd/interview/browser',
         'frontEnd/interview/questions',
       ]
     },
@@ -91,6 +90,7 @@ module.exports = {
         'frontEnd/javascript/extends',
         'frontEnd/javascript/memory',
         'frontEnd/javascript/webStorage',
+        'frontEnd/javascript/dom',
         'frontEnd/javascript/unittest',
         'frontEnd/javascript/webwork',
       ]

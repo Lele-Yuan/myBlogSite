@@ -4,7 +4,37 @@ sidebar_position: 1
 title: css知识点
 ---
 
+## 盒模型
+CSS 的盒模型本质就是一个盒子，包含四个部分，从内到外依次为content padding border margin
+### 标准盒模型
+- w3c 盒模型标准
+- width(height) = contentWidth(contentHeight)
+### 怪异盒模型
+- IE 盒模型标准
+- width(height) = contentWidth(contentHeight) + padding + border
+### 如何设置盒模型
+- 怪异盒模型：box-sizing: border-box;
+- 标准盒模型：box-sizing: content-box;
+
 ## BFC
+BFC (Block Formatting Content) 块级格式化上下文。是一个独立的渲染区域，这个区域与外部无关。可以通过一些条件触发BFC。
+### BFC 触发条件
+- HTML 根元素
+- float 不是none
+- overflow 不是visible
+- display 为 inline-block table-cell table-caption flex inline-flex
+- position 不是static或者relative
+### BFC 布局规则
+- 同一个BFC的两个相邻容器上下margin会重叠
+- 计算BFC高度时浮动元素也参与计算
+- BFC的区域不会与浮动容器发生重叠
+- BFC内部的盒子是垂直方向依次排列的
+- BFC元素的margin-left与包含块的border-left相接触
+### BFC 作用
+- 利用BFC避免margin塌陷
+- 自适应两栏布局
+- 清除浮动
+[参考连接](https://blog.csdn.net/sinat_36422236/article/details/88763187)
 
 ## 实现垂直水平居中的方案
 

@@ -108,6 +108,8 @@ title: 性能优化
 - defer 和 async 属性
   - async=true： 脚本异步执行
   - defer=true： 脚本将会在页面完成解析后执行
+- javascript 加载会阻塞 css 解析和渲染；也会阻塞 dom 解析和渲染
+- css 加载对 Dom 的解析没有阻塞，但是对于 Dom 的渲染造成了阻塞；对 JavaScript 的执行会造成阻塞。
 
 ## 减少 DOM 操作
 - 缓存已经获取过的 DOM 元素；

@@ -41,12 +41,10 @@ git init 用来初始化git仓库，会生成一个 .git 文件夹(HEAD、branch
   git reset
 ```
 
-
-## git 撤销
-[git reset三种模式](https://www.jianshu.com/p/c2ec5f06cf1a)
-
 ## git fetch 和 pull
+git fetch 是将代码从远程拉到本地的提交区，可以再使用git merge 将提交区和工作区代码合并。
 
+git pull 是将远程主机的最新代码拉到工作区并完成合并。相当于 git fetch + git merge
 
 ## git 本地项目关联远程分支
 ```

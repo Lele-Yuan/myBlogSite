@@ -10,16 +10,17 @@ JavaScript 任务 task 被分成**宏任务 MacroTask 和微任务 MircoTask **�
 
 队列有先进先出的特性。**先执行宏任务再执行宏任务的微任务**。
 
-## Task 
+## 宏任务和微任务 
 微任务（MircoTask）包括：
   - Promise中的 then、catch、finally
   - MutationObserver
   - Process.nextTick（Node环境，通常也被认为是微任务，是微任务中优先级最高的）
 宏任务（MacroTask）(非微任务) 包括：
   - script 中的全部代码
-  - DOM操作
-  - setTimeout、setInterval 
-  - 网络请求
+  - 事件绑定
+  - setTimeout [setTimeout 最小事件间隔 4ms](https://blog.csdn.net/weixin_48726650/article/details/107338797)
+  - setInterval 
+  - 网络请求：ajax请求
   
 ## runtime
   - 是 JavaScript 的执行环境。 

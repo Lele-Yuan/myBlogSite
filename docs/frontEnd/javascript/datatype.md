@@ -173,8 +173,6 @@ Set 和 Array 类似， 但是成员是不可重复、无序的。 Set 是构造
 - WeakMap 没有 size 不可以遍历。
 - WeakMap 的 API 有get、set、has、delete
 
-
-
 ## 数组遍历
 - 遍历方法 for forEach for...in for...of 
 - 有返回值的遍历方式 map reduce reduceRight filter find findIndex some every
@@ -260,17 +258,39 @@ for in
 Object.getOwnPropertyNames()
 Reflect.ownKeys()
 
+## 数组的API
+### 改变原有值
+- push —— 从后面添加元素；返回添加完元素的新数组长度。
+- pop —— 从后面删除一个元素；返回删除的元素值。
+- shift —— 从前面删除一个元素；返回删除的元素。
+- unshift —— 从前面添加元素；返回添加完元素的新数组长度。
+- splice(start,n) —— 删除从索引值为start的n个元素。
+- sort(fn) —— 将数组按照fn的计算规则排序；返回排序好的数组。
+- reverse —— 将数组反转；返回反转后的数组。
+- copyWithin(target[, start, end]) —— 从数组的指定位置[start,end)拷贝元素到数组的另一个指定位置target中。
+- fill(value[, start, end]) —— 使用制定的元素value填充数组[start,end)区间。
+
+### 不改变原有值
+- concat —— 连接两个数组并返回新数组；返回连接后的新数组。
+- slice(start, end) —— 切除掉索引值区间为[start,end)的数组；返回值为切出来的数组。
+- indexOf —— 查找某个元素的第一个索引值，若没有则返回-1。
+- lastIndexOf —— 和 indexOf 功能相同，是从后往前找。
+- includes —— 判断数中是否包含给定的值；返回 boolean 结果。
+- flat(num) —— 数组铺平，num 为展开层级。
 
 ## 获取数据类型的方式
 
 1. typeof(a)
-   只能获取到普通数据类型： number boolean string undefined object functon ； 无法判断对象的具体类型。 返回值为类型字符串，例如 `string`
+  - 只能获取到普通数据类型：返回值为类型字符串，返回值包括 number boolean string undefined object functon ； 
+  - 无法判断对象的具体类型。 
+  - 原理：js 底层在存储数据时，会在变量的机器码前三位存放基本数据类型。
 
 2. Object.prototype.toString.call(a))
    可以区分具体的对象类型; 无法判断自定义对象类型。返回值为 类型的字符串，例如 `[object Array]` 
 
 3. a instanceof A
    可以判断对象类型，但不可以区分基本数据类型 String Number Boolean Undefined Null Symbol。返回值为 boolean 
+   - 原理：判断 A 对象的 prototype 指向对象是否存在于 a 对象的原型链上。
 
 4. a.constructor == A
    查看数据的构造函数， `.name` 为构造函数名称。

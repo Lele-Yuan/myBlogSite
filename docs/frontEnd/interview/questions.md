@@ -37,6 +37,7 @@ title: 面试题
 ### 大数据遍历如何优化
 ### webwork 如何启动一个线程？有哪些API
 ### canvas 的 restore 和 save
+### 浮点数相加的结果不准确如何处理
 
 ## typsScript
 ### type 和 interface 的区别
