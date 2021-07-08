@@ -23,7 +23,7 @@ title: 知识点
 - [async await](/docs/frontEnd/javascript/asyncawait) 
 - [promise](/docs/frontEnd/javascript/promise)
 - [ES6](/docs/frontEnd/javascript/es6)
-- [浏览器缓存](/docs/frontEnd/interview/browser#http-缓存)
+- [浏览器缓存](/docs/frontEnd/network/http#http-缓存)
 - 设计模式
 
 
@@ -36,7 +36,7 @@ title: 知识点
 - [vue-router](/docs/frontEnd/vue/vueRouter)
 
 ## 性能
-- [从输入url到页面显示，发生了什么](/docs/frontEnd/interview/browser)
+- [从输入url到页面显示，发生了什么](/docs/frontEnd/network/http)
 - [性能优化方案](/docs/frontEnd/network/performance)
 
 
