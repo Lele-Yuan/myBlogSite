@@ -17,3 +17,6 @@ axios是一个基于promise封装好的发送请求、返回响应的http库，�
 
 ## 断点续传 进度条 取消上传
 [利用axios实现断点续传并支持进度条和取消上传](https://zhuanlan.zhihu.com/p/136147620)
+
+## axios 和 fetch 的区别
+[Fetch和Axios](https://juejin.cn/post/6934155066198720519)

@@ -21,6 +21,12 @@ title: http
 
 域名解析也叫做域名指向、服务器设置、域名配置、反向IP登记等等；简单说是由DNS服务器完成将好记得域名解释成IP，然后在此IP地址的主机上将一个子目录与域名绑定。
 
+## HTTP 的特点
+[http协议的特点](https://juejin.cn/post/6844904100035821575#heading-17)
+
+## HTTP 的 keep-alive 模式
+[HTTP请求中的Keep-Alive模式详解](https://juejin.cn/post/6934517636139057165)
+
 ## HTTP2
 - HTTP2的网站都是HTTPS协议的；
 ### 二进制分桢层
