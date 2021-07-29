@@ -66,6 +66,7 @@ module.exports = {
         'frontEnd/vue/diff',
         'frontEnd/vue/directive',
         'frontEnd/vue/axios',
+        'frontEnd/vue/ssr',
         'frontEnd/vue/other',
       ]
     },

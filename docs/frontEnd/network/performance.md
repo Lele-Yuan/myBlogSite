@@ -8,6 +8,7 @@ title: 性能优化
 - [前端异常监控解决方案研究](https://cdc.tencent.com/2018/09/13/frontend-exception-monitor-research/)
 - [前端错误日志收集方案](https://juejin.cn/post/6844903700272513031)
 - [前端错误收集以及统一异常处理](https://juejin.cn/post/6844903709323837454)
+- [前端异常监控](https://juejin.cn/post/6844903641619365902)
 ### 全局捕获
 1. **window.onerror**
 

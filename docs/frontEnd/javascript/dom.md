@@ -16,7 +16,7 @@ element.addEventListener(type, listener, useCapture)
 ```
 - type：事件类型
 - listener：事件监听回调
-- useCapture：事件模型方式 - 默认值false表示事件冒泡；true表示事件捕获
+- useCapture：事件模型方式，表示listener事件在哪个阶段被执行 - 默认值false表示事件冒泡；true表示事件捕获
 
 ## 事件代理和事件委托
 事件代理又叫事件委托，事件代理就是利用事件冒泡或事件捕获的机制把一系列的内层元素事件绑定到外层元素。

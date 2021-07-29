@@ -40,6 +40,8 @@ entryOption - webpack 中的 entries 被处理后；
 afterPlugins - 初始化内部插件，插件集合完成设置后；
 afterResolvers - resolver设置完成后触发；
 
+## 编写plugin
+- [编写一个自己的webpack插件plugin](https://juejin.cn/post/6844903935837208584)
 
 [compiler hooks](https://webpack.docschina.org/api/compiler-hooks/)
 [compilation hooks](https://webpack.docschina.org/api/compilation-hooks/)
@@ -60,3 +62,4 @@ compilation则暴露了与模块和依赖有关的粒度更小的事件钩子。
 - [参考链接](https://juejin.cn/post/6844903685407916039)
 - [webpack 打包流程](https://juejin.cn/post/6943468761575849992)
 - [深入浅出的webpack](http://webpack.wuhaolin.cn/)
+- [webpack 面试题](https://juejin.cn/post/6844904094281236487)
